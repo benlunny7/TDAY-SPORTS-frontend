@@ -24,17 +24,18 @@ const App = () => {
         </Link>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <span style={{ color: 'white', fontWeight: '600', marginRight: '10px' }}>Choose Content and Platform:</span>
-          <select value={database} onChange={e => setDatabase(e.target.value)} className="p-1 sm:p-2 rounded bg-white text-black">
+          <select name="database" id="database" className="p-1 sm:p-2 rounded bg-white text-black" onChange={e => setDatabase(e.target.value)} value={database}>
             <option value="FastTwitchTDAY">FastTwitch</option>
             <option value="YerbaeTDAY">Yerbae</option>
           </select>
-          <select value={collection} onChange={e => setCollection(e.target.value)} className="p-1 sm:p-2 rounded bg-white text-black">
+          <select name="collection" id="collection" className="p-1 sm:p-2 rounded bg-white text-black" onChange={e => setCollection(e.target.value)} value={collection}>
             <option value="Instagram">Instagram</option>
             <option value="Tiktok">Tiktok</option>
             <option value="YouTube">YouTube</option>
           </select>
         </div>
       </nav>
+
 
       <div className="container mx-auto p-2 sm:p-4 h-full">
         <Routes>
