@@ -58,8 +58,8 @@ const CreatePage = () => {
     }
 
     return (
-        <div className="max-w-lg bg-white shadow-lg mx-auto p-7 rounded mt-6">
-            <h2 className="font-semibold text-2xl mb-4 block text-center">
+        <div className="max-w-lg w-full bg-white shadow-lg mx-auto p-4 sm:p-7 rounded mt-4 sm:mt-6">
+            <h2 className="font-semibold text-xl sm:text-2xl mb-4 block text-center">
                 Add New Content:
             </h2>
 
@@ -99,7 +99,7 @@ const CreatePage = () => {
                     </div>
 
                     <div>
-                        {!isLoading && (<button className="block w-full mt-6 bg-blue-700 text-white rounded-sm px-4 py-2 font-bold hover:bg-blue-600 hover:cursor-pointer">Save</button>)}
+                        {!isLoading && (<button className="block w-full mt-4 sm:mt-6 bg-blue-700 text-white rounded-sm px-4 py-2 font-bold hover:bg-blue-600 hover:cursor-pointer">Save</button>)}
                     </div>
 
 

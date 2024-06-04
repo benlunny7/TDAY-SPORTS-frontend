@@ -18,17 +18,17 @@ const App = () => {
 
   return (
     <div>
-      <nav className="bg-lightskyblue flex justify-between items-center p-2">
+      <nav className="bg-lightskyblue flex justify-between items-center p-2 sm:p-4 text-sm sm:text-base">
         <Link to="/">
-          <h2 className="text-white text-2xl font-bold">TDAY Sports FastTwitch and Yerbae Content</h2>
+          <h2 className="text-white text-lg sm:text-2xl font-bold">TDAY Sports FastTwitch and Yerbae Content</h2>
         </Link>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <span style={{ color: 'white', fontWeight: '600', marginRight: '10px' }}>Choose Content and Platform:</span>
-          <select value={database} onChange={e => setDatabase(e.target.value)} className="custom-dropdown">
+          <select value={database} onChange={e => setDatabase(e.target.value)} className="p-1 sm:p-2 rounded bg-white text-black">
             <option value="FastTwitchTDAY">FastTwitch</option>
             <option value="YerbaeTDAY">Yerbae</option>
           </select>
-          <select value={collection} onChange={e => setCollection(e.target.value)} className="custom-dropdown">
+          <select value={collection} onChange={e => setCollection(e.target.value)} className="p-1 sm:p-2 rounded bg-white text-black">
             <option value="Instagram">Instagram</option>
             <option value="Tiktok">Tiktok</option>
             <option value="YouTube">YouTube</option>
@@ -36,7 +36,7 @@ const App = () => {
         </div>
       </nav>
 
-      <div className="container mx-auto p-2 h-full">
+      <div className="container mx-auto p-2 sm:p-4 h-full">
         <Routes>
           <Route index element={<HomePage />}></Route>
           <Route path="/create" element={<CreatePage />}></Route>

@@ -29,42 +29,36 @@ const Video = ({ video, getVideos }) => {
         }
     }
 
-
     return (
         <div className="bg-white rounded shadow-lg overflow-hidden">
             <style>
                 {`
-          .bg-lightskyblue {
-            background-color: #87CEFA; /* LightSkyBlue */
-          }
-        `}
+                    .bg-lightskyblue {
+                        background-color: #87CEFA; /* LightSkyBlue */
+                    }
+                `}
             </style>
             <div className="px-4 pt-2 pb-4 flex flex-col justify-between" style={{ minHeight: '250px' }}>
 
                 <div>
-                    <h2 style={{ background: '#f0f0f0', padding: '5px 10px', borderRadius: '8px', fontWeight: 'bold' }}>{video.postCaptions}</h2>
+                    <h2 className="bg-gray-100 p-2 rounded-lg font-bold">{video.postCaptions}</h2>
 
-                    <div className="text-sm"><span style={{ fontWeight: '600' }}>Link to Post:</span> <a href={video.linkToPost} target="_blank" rel="noopener noreferrer" style={{ color: 'blue' }}>Click to View Content</a></div>
-                    <div className="text-sm"><span style={{ fontWeight: '600' }}>Post Type:</span> {video.postType}</div>
-                    <div className="text-sm"><span style={{ fontWeight: '600' }}>Date of Post:</span> {video.postDate}</div>
-                    <div className="text-sm"><span style={{ fontWeight: '600' }}>Hashtags:</span> {video.hashtagsUsed.join(', ')}</div>
-                    <div className="text-sm"><span style={{ fontWeight: '600' }}>Impressions:</span> {video.impressions}</div>
-                    <div className="text-sm"><span style={{ fontWeight: '600' }}>Views:</span> {video.views}</div>
-                    <div className="text-sm"><span style={{ fontWeight: '600' }}>Likes:</span> {video.likes}</div>
+                    <div className="text-sm"><span className="font-bold">Link to Post:</span> <a href={video.linkToPost} target="_blank" rel="noopener noreferrer" className="text-blue-600">Click to View Content</a></div>
+                    <div className="text-sm"><span className="font-bold">Post Type:</span> {video.postType}</div>
+                    <div className="text-sm"><span className="font-bold">Date of Post:</span> {video.postDate}</div>
+                    <div className="text-sm"><span className="font-bold">Hashtags:</span> {video.hashtagsUsed.join(', ')}</div>
+                    <div className="text-sm"><span className="font-bold">Impressions:</span> {video.impressions}</div>
+                    <div className="text-sm"><span className="font-bold">Views:</span> {video.views}</div>
+                    <div className="text-sm"><span className="font-bold">Likes:</span> {video.likes}</div>
                 </div>
 
                 <div className="mt-2 flex gap-4">
-                    <Link to={`/edit/${video._id}`} className="inline-block w-full text-center shadow-md text-sm bg-lightskyblue text-white 
-        rounded-sm px-4 py-1 font-bold hover:bg-blue-600 hover:cursor-pointer">Edit</Link>
+                    <Link to={`/edit/${video._id}`} className="flex-1 text-center shadow-md text-sm bg-lightskyblue text-white rounded-sm px-4 py-1 font-bold hover:bg-blue-600 hover:cursor-pointer">Edit</Link>
 
-                    <button onClick={() => deleteVideo(video._id)} className="inline-block w-full text-center shadow-md text-sm bg-red-700 text-white 
-        rounded-sm px-4 py-1 font-bold hover:bg-red-600 hover:cursor-pointer">Delete</button>
+                    <button onClick={() => deleteVideo(video._id)} className="flex-1 text-center shadow-md text-sm bg-red-700 text-white rounded-sm px-4 py-1 font-bold hover:bg-red-600 hover:cursor-pointer">Delete</button>
                 </div>
 
             </div>
-
-
-
         </div>
     )
 }

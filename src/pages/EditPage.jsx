@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { VITE_BACKEND_URL } from "../App";
 import { useDatabase } from '../DatabaseContext';
 
-
 const EditPage = () => {
     const { id } = useParams();
     const { database, collection } = useDatabase();
@@ -21,7 +20,6 @@ const EditPage = () => {
         views: "",
         likes: ""
     });
-
 
     const getVideo = async () => {
         setIsLoading(true);
@@ -47,7 +45,6 @@ const EditPage = () => {
         }
     };
 
-
     const updateVideo = async (e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -63,62 +60,59 @@ const EditPage = () => {
         }
     };
 
-
-
     useEffect(() => {
         getVideo();
     }, [id, database, collection]);
 
     return (
-        <div className="max-w-lg bg-white shadow-lg mx-auto p-7 rounded mt-6">
-            <h2 className="font-bold text-2xl mb-4 block text-center">
+        <div className="max-w-lg w-full bg-white shadow-lg mx-auto p-4 sm:p-7 rounded mt-4 sm:mt-6">
+            <h2 className="font-bold text-xl sm:text-2xl mb-4 block text-center">
                 Update Content:
             </h2>
-            {isLoading ? ("Loading") : (
-                <>
-                    <form onSubmit={updateVideo}>
-                        <div className="space-y-2">
-                            <div>
-                                <label className="font-semibold">Post Type</label>
-                                <input type="text" value={video.postType} onChange={(e) => setVideo({ ...video, postType: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter type of post (eg: IG Reel)" />
-                            </div>
-                            <div>
-                                <label className="font-semibold">Post Caption</label>
-                                <input type="text" value={video.postCaptions} onChange={(e) => setVideo({ ...video, postCaptions: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter post caption" />
-                            </div>
-                            <div>
-                                <label className="font-semibold">Hashtags</label>
-                                <input type="text" value={video.hashtagsUsed} onChange={(e) => setVideo({ ...video, hashtagsUsed: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter hastags, no '#' and comma separated (eg: psu,tday)" />
-                            </div>
-                            <div>
-                                <label className="font-semibold">Date</label>
-                                <input type="text" value={video.postDate} onChange={(e) => setVideo({ ...video, postDate: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter date posted (eg: 05-22-2024)" />
-                            </div>
-                            <div>
-                                <label className="font-semibold">Post URL</label>
-                                <input type="text" value={video.linkToPost} onChange={(e) => setVideo({ ...video, linkToPost: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter link to post " />
-                            </div>
-                            <div>
-                                <label className="font-semibold">Impressions</label>
-                                <input type="number" value={video.impressions} onChange={(e) => setVideo({ ...video, impressions: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter # of impressions (no commas) " />
-                            </div>
-                            <div>
-                                <label className="font-semibold">Views</label>
-                                <input type="number" value={video.views} onChange={(e) => setVideo({ ...video, views: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter # of views (no commas)" />
-                            </div>
-                            <div>
-                                <label className="font-semibold">Likes</label>
-                                <input type="number" value={video.likes} onChange={(e) => setVideo({ ...video, likes: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter # of likes (no commas) " />
-                            </div>
-
-                            <div>
-                                {!isLoading && (<button className="block w-full mt-6 bg-blue-700 text-white rounded-sm px-4 py-2 font-bold hover:bg-blue-600 hover:cursor-pointer">Update</button>)}
-                            </div>
-
-
+            {isLoading ? ("Loading...") : (
+                <form onSubmit={updateVideo}>
+                    <div className="space-y-2">
+                        <div>
+                            <label className="font-semibold">Post Type</label>
+                            <input type="text" value={video.postType} onChange={(e) => setVideo({ ...video, postType: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter type of post (eg: IG Reel)" />
                         </div>
-                    </form>
-                </>
+                        <div>
+                            <label className="font-semibold">Post Caption</label>
+                            <input type="text" value={video.postCaptions} onChange={(e) => setVideo({ ...video, postCaptions: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter post caption" />
+                        </div>
+                        <div>
+                            <label className="font-semibold">Hashtags</label>
+                            <input type="text" value={video.hashtagsUsed} onChange={(e) => setVideo({ ...video, hashtagsUsed: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter hastags, no '#' and comma separated (eg: psu,tday)" />
+                        </div>
+                        <div>
+                            <label className="font-semibold">Date</label>
+                            <input type="text" value={video.postDate} onChange={(e) => setVideo({ ...video, postDate: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter date posted (eg: 05-22-2024)" />
+                        </div>
+                        <div>
+                            <label className="font-semibold">Post URL</label>
+                            <input type="text" value={video.linkToPost} onChange={(e) => setVideo({ ...video, linkToPost: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter link to post " />
+                        </div>
+                        <div>
+                            <label className="font-semibold">Impressions</label>
+                            <input type="number" value={video.impressions} onChange={(e) => setVideo({ ...video, impressions: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter # of impressions (no commas) " />
+                        </div>
+                        <div>
+                            <label className="font-semibold">Views</label>
+                            <input type="number" value={video.views} onChange={(e) => setVideo({ ...video, views: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter # of views (no commas)" />
+                        </div>
+                        <div>
+                            <label className="font-semibold">Likes</label>
+                            <input type="number" value={video.likes} onChange={(e) => setVideo({ ...video, likes: e.target.value })} className="w-full block border p-3 text-gray-600 rounded focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter # of likes (no commas) " />
+                        </div>
+                        <div>
+                            {!isLoading && (
+                                <button className="block w-full mt-4 sm:mt-6 bg-blue-700 text-white rounded-sm px-4 py-2 font-bold hover:bg-blue-600 hover:cursor-pointer">
+                                    Update
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                </form>
             )}
         </div>
     );
